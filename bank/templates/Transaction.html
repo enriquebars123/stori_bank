@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<style>
+   body{
+      background: rgb(233, 233, 233);
+   }
+   .form {
+      z-index: 1;
+      background: #fff;
+      max-width: 40%;
+     
+      padding: 45px;
+      text-align: center;
+      box-shadow: 0 0 20px 0 rgb(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+      box-sizing: border-box;
+      font-size: 14px;
+
+     
+      position: absolute;
+  top: 20%;
+  left: 32%;
+  margin: -25px 0 0 -25px; /* Apply negative top and left margins to truly center the element */
+
+   }
+   .file-select {
+  position: relative;
+  display: inline-block;
+}
+   .text-form{
+      font-family: "Roboto", sans-serif;
+      outline: 0;
+      background: #f2f2f2;
+      width: 100%;
+      border: 0;
+      margin: 0 0 15px;
+      padding: 15px;
+      box-sizing: border-box;
+      font-size: 14px;
+      border: 1px solid #a0b3b0;
+
+   }
+   .btn-submit
+   {
+      text-transform: uppercase;
+      outline: 0;
+      background: #4CAF50;   
+      width: 100%;
+      border: 0;
+      padding: 15px;
+      color: #fff;
+      font-size: 25px;
+      cursor: pointer;
+
+   } 
+   
+  
+</style>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+
+   <!-- <script src='main.js'></script>-->
+
+</head>
+<body>
+   <div class="form">
+      <div class="form-transaction">
+         <h1>Registro de transacciones</h1>
+      </div>
+      <form class="form-transaction" action="/api/v1/uploadTransaction/" method="POST" enctype="multipart/form-data">{% csrf_token %}
+         
+         <input type="text" name="account_number"  class="text-form" placeholder="Numero de cuenta" >
+         <input type="email" name="email" placeholder="Correo destinatario" class="text-form"/>
+         <input id="id_attachment" type="file" name="attachment" class="text-form file-select" placeholder="Cargar archivo" />
+         <input type="submit" value="Cargar" class="btn-submit">
+      
+      </form>
+   </div> 
+</body>
+</html>
